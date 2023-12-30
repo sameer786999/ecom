@@ -7,7 +7,7 @@ router.post('/createuser',async(req,res)=>{
     try {
        await User.create({
             name:req.body.name,
-            password:req.body.pasword,
+            password:req.body.password,
             email:req.body.email,
             location:req.body.location
         })
@@ -19,6 +19,7 @@ router.post('/createuser',async(req,res)=>{
         
     }
 })
+
 
 
 module.exports=router;
