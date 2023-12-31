@@ -5,23 +5,35 @@ export default function SignUp() {
 
     const [credentials,setcredentials]=useState({name:"",email:"",password:"",geolocation:""});
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault();// a synthetic event
-        const response=  await fetch("https://localhost:5000/api/createuser",{
-             method:'POST',
-             header:{
-                'Content-Type':'application/json',
-                
-             },
-             body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation})
-        })
-         const json=await response.json();
-         console.log(json); 
+   const handleSubmit = async (e) => {
+     e.preventDefault(); // a synthetic event
+     try {
+       const response = await fetch("https://localhost:5000/api/createuser", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({
+           name: credentials.name,
+           email: credentials.email,
+           password: credentials.password,
+           location: credentials.geolocation,
+         }),
+       });
 
-         if(!json.success){
-             alert("Enter valid credentials");
-         }
-    }
+      
+
+       const json = await response.json();
+       console.log(json);
+
+       if (!json.success) {
+         alert("Enter valid credentials");
+       }
+     } catch (error) {
+       console.error("Error:", error.message);
+     }
+   };
+
 
     const onChange=(event)=>{
         setcredentials({...credentials,[event.target.name]:event.target.value})
