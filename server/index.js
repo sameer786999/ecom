@@ -24,7 +24,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", require("./Routes/CreateUser"));
+app.use("/api",require("./Routes/DisplayData"));
 
 app.listen(port, () => {
   console.log(`Sunnai De raha hain, behra nahi hun main! ${port}`);
 });
+

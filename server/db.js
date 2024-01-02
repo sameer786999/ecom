@@ -12,9 +12,19 @@ const mongoDB = async () => {
     console.log("Connected to DataBase Successfully");
 
     const fetched_data = await mongoose.connection.db.collection("food");
-    fetched_data.find({}).toArray(function(err,data){
-      if(err) console.log(err);
-      else console.log("");
+    fetched_data.find({}).toArray( async function(err,data){
+      const foodCategory=await mongoose.connection.db.collection("foodCategory");
+      foodCategory.find({}).toArray(function(err,catData){
+        if(err) console.log(err);
+         else {
+          global.food=data;
+           global.foodCategory=catData;
+    }})
+      // if(err) console.log(err);
+      // else {
+      //   global.food=data;
+       
+      // }
     })
 
   
@@ -22,6 +32,7 @@ const mongoDB = async () => {
     console.error("---", err);
   }
 };
+
 
 
 module.exports=mongoDB;
