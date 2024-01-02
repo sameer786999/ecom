@@ -19,12 +19,13 @@ app.use((req, res, next) => {
 // Parse JSON requests
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 
 app.use("/api", require("./Routes/CreateUser"));
 app.use("/api",require("./Routes/DisplayData"));
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 app.listen(port, () => {
   console.log(`Sunnai De raha hain, behra nahi hun main! ${port}`);
