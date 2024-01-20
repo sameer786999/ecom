@@ -9,7 +9,7 @@ export default function Card() {
           style={{ width: "18rem", maxHeight: "360px" }}
         >
           <img
-            src="https://images.ctfassets.net/hrltx12pl8hq/2YfIyPF779HsbmwWIvfIDU/a94fd261ea24832eac4fe66f51615996/Healthy-Eats_thumbnail.jpg"
+            src="https://images.ctfassets.net/hrltx12pl8hq/2YfIyPF779HsbmwWIvfIDU/a94fd261ea24832eac4fe66f51615996/Healthy-Eats_thumbnail.jpg "
             className="card-img-top"
             alt=""
           />
